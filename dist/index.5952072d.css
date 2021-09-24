@@ -1,0 +1,105 @@
+:root {
+    --white: #E7E7E7;
+    --dark-blue: #217CC7;
+    --light-blue: #95E7E9;
+    --yellow: #FEBB3B;
+    --red: #FE767C;
+    --black: #0E0E34;
+    --green: #85BD2D;
+
+    --section-top-border: 4px;
+    font-size: 24px;
+
+
+}
+body {
+    color: var(--black);
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+    "question question"
+    "answers info"
+    "answers correct"
+    "answers correct"
+    "answers correct"
+    "navigation navigation";
+    margin: 5vw;
+
+
+}
+
+.card {
+    border-radius: 1.3px;
+    color: var(--black);
+    height: fit-content;
+    background-color: var(--white);
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.68); 
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.68);
+}
+.card span {
+    color: var(--dark-blue);
+}
+.card p {
+    padding: 1rem;
+    /* padding: 0.4rem 1rem 0.4rem 0.6rem; */
+}
+
+.card--background-color-yellow {
+    background-color: var(--yellow) !important;
+
+}
+.card--background-color-blue {
+    background-color: var(--dark-blue) !important;
+
+}
+.card--background-color-green {
+    background-color: var(--green) !important;
+
+}
+.card--background-color-red {
+    background-color: var(--red) !important;
+
+}
+
+.question {
+    grid-area: question;
+    margin-bottom: 1.2rem;
+    background-color: var(--white);
+
+}
+
+.question h1 {
+    color: var(--dark-blue);
+    margin: 0.8rem 0 0 0.8rem;
+    font-size: 1rem;
+}
+.question p {
+    padding: 0.4rem 1rem 0.3rem 1rem;
+}
+
+.answers {
+    border-top: var(--section-top-border) var(--light-blue) solid;
+
+}
+
+
+.info {
+    grid-area: info;
+    margin: 0rem 1rem 0rem 1rem;
+    border-top: var(--section-top-border) var(--yellow) solid;
+}
+
+.navigation {
+    grid-area: navigation;
+
+}
+
+
+
+
+/*# sourceMappingURL=index.5952072d.css.map */

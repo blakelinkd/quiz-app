@@ -1,0 +1,18 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "serve": "parcel --open src/index.html",
+    "build": "parcel build src/index.html",
+    "dev": "concurrently \"npm run serve\" \"npm run build\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browsersync": "^0.0.1-security",
+    "concurrently": "^6.2.1",
+    "normalize.css": "^8.0.1",
+    "parcel": "^2.0.0-rc.0"
+  }
+}
