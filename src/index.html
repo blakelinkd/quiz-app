@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="app-container">
+    <div class="top">
         <div class="question card">
             <h1>Question 1/5</h1>
             <p>
@@ -19,6 +20,9 @@
                 asperiores magnam aliquid aut?
             </p>
         </div>
+
+    </div>
+    <div class="container">
 
 
         <div class="answers">
@@ -50,17 +54,21 @@
         </div>
 
 
-        <div class="navigation">
-            <div class="forward card">
-                <h1>Forward</h1>
-            </div>
-            <div class="back card">
-                <h1>back</h1>
-            </div>
+    </div>
+    
+    <div class="navigation">
+        <div class="card back">
+            <h2>Previous Question</h2>
+        </div>
+        <div class="card forward">
+            <h2>Next Question</h2>
         </div>
     </div>
 
-    <quiz-app></quiz-app>
+
+    </div>
+
+    <!-- <quiz-app></quiz-app> -->
 </body>
 
 <script type="module" src="quiz.js"></script>

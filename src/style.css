@@ -16,19 +16,14 @@ body {
     color: var(--black);
 }
 
-
+.app-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80vw;
+}
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: max-content;
-    grid-template-areas: 
-    "question question"
-    "answers info"
-    "answers correct"
-    "answers correct"
-    "answers correct"
-    "navigation navigation";
-    margin: 5vw;
+    display: flex;
+    flex-direction: row;
 
 
 }
@@ -90,14 +85,37 @@ body {
 
 .info {
     grid-area: info;
+    display: flex;
+    flex-direction: column;
     margin: 0rem 1rem 0rem 1rem;
     border-top: var(--section-top-border) var(--yellow) solid;
 }
 
 .navigation {
+
+    border-top: var(--section-top-border) var(--green) solid;
+    padding-top: 2rem;
+    margin-top: 2rem;
     grid-area: navigation;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
 }
+.navigation * {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 13rem;
+}
 
+.forward {
+    border-right: 8px var(--green) solid;
+        
 
+    
+}
 
+.back {
+    border-left: 8px var(--dark-blue) solid;
+}

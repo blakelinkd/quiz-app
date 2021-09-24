@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "serve": "parcel --open src/index.html",
+    "serve": "parcel src/index.html",
     "build": "parcel build src/index.html",
     "dev": "concurrently \"npm run serve\" \"npm run build\""
   },
