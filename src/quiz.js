@@ -29,3 +29,4 @@ class QuizApp extends HTMLElement {
 }
 
 window.customElements.define('quiz-app', QuizApp);
+

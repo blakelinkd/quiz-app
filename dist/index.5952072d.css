@@ -16,26 +16,46 @@ body {
     color: var(--black);
 }
 
-nav * {
+.app-nav {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 3rem;
+    background-color: var(--white);
+    z-index: 1;
+    display: flex;
+    align-content: flex-end;
+}
+.app-nav ul {
+    display: flex;
+    align-content: flex-end;
     list-style: none;
     width: 100%;
-}
-nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-items: space-between;
-}
-nav li {
-    width: fit-content;
+    height: fit-content;
     justify-content: space-between;
-    border-bottom: 8px solid var(--dark-blue);
+    flex-wrap: wrap;
+    padding: 0;
 }
+.app-nav ul li {
+    border-bottom: var(--section-top-border) solid var(--dark-blue);    
+}
+.app-nav li a {
+    text-decoration: none;
+    padding-right: 1rem;
+    
+}
+
+.app-nav li a:link {color: var(--black);}  
+.app-nav li a:visited {color: var(--black);}  
+.app-nav li a:hover {color: var(--light-blue)}  
+.app-nav li a:active {color: var(--yellow)}  
+
 
 .app-container {
     display: flex;
     flex-direction: column;
-    margin: 2rem auto;
-    border: 2px solid magenta;
+    margin: 8rem auto;
     width: 80vw;
 }
 .main-container {
@@ -43,14 +63,12 @@ nav li {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    border: 2px solid red;
 
 }
 
 .quiz-container {
     display: flex;
     flex-direction: column;
-    border: 2px solid magenta;
     width: 45%;
 }
 

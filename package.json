@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "serve": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --no-source-maps",
     "dev": "concurrently \"npm run serve\" \"npm run build\""
   },
   "author": "",
