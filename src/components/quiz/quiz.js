@@ -18,6 +18,8 @@ export class QuizApp extends HTMLElement {
     }
     
     connectedCallback() {
+        this.style.display = 'none';
+
     }
     disconnectedCallback() {
     }

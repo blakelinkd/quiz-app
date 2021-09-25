@@ -10,6 +10,20 @@ const summary = document.querySelector('quiz-summary');
 
 const components = [ { name: "navbar", comp: navbar}, { name: "quiz", comp: quiz}, { name: "intro", comp: intro}, { name: "summary", comp: summary}];
 
+const quizJson = document.getElementById('quiz-app').getAttribute('quizJson');
+
+testJsonLoader(quizJson);
+
+function testJsonLoader(json) {
+    fetch(json)
+  .then(response => response.json())
+  .then(data => console.log(data)).catch(error => console.log(error));
+}
+
+
+
+
+
 export const componentLoader = function(hi) {
     for(const comp of components)
     {

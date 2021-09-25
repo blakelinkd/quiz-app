@@ -17,6 +17,7 @@ export class QuizSummary extends HTMLElement {
     }
     
     connectedCallback() {
+        this.style.display = 'none';
     }
     disconnectedCallback() {
     }
