@@ -1,2 +1,0 @@
-const e=document.createElement("template");e.innerHTML='\n<link rel="stylesheet" href="style.css">\n<link rel="stylesheet" href="reset.css">\n<div>\n<h1>Hasdff</h1>\n</div>\n';class n extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(e.content.cloneNode(!0))}connectedCallback(){}disconnectedCallback(){}}window.customElements.define("quiz-app",n);
-//# sourceMappingURL=index.7aca001f.js.map

@@ -4,16 +4,11 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "serve": "parcel src/index.html",
-    "build": "parcel build src/index.html --no-source-maps",
-    "dev": "concurrently \"npm run serve\" \"npm run build\""
+    "serve": "browser-sync start --online false --server ./src --files \"src/*\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browsersync": "^0.0.1-security",
-    "concurrently": "^6.2.1",
-    "normalize.css": "^8.0.1",
-    "parcel": "^2.0.0-rc.0"
+    "browsersync": "^0.0.1-security"
   }
 }
