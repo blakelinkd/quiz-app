@@ -153,7 +153,7 @@
 56C:\Users\blake\Desktop\pearon\quiz\node_modules\asynckit132768097715608613 1
 75C:\Users\blake\Desktop\pearon\quiz\node_modules\lodash\_unescapeHtmlChar.js132768097731619791 0
 93C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\observable\FromEventPatternObservable.js132768097733246188 0
-39C:\Users\blake\Desktop\pearon\quiz\dist132770041922400133 1
+39C:\Users\blake\Desktop\pearon\quiz\dist132770088018939409 1
 91C:\Users\blake\Desktop\pearon\quiz\node_modules\core-js\stable\typed-array\last-index-of.js132768097745831892 0
 101C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\_esm2015\internal\operators\publishReplay.js.map132768097753883808 0
 38C:\Users\blake\Desktop\pearon\quiz\src132770011749175802 1
@@ -226,7 +226,7 @@
 83C:\Users\blake\Desktop\pearon\quiz\node_modules\date-fns\esm\locale\ht\package.json132768097797115241 0
 91C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\_esm5\internal\operators\concat.js.map132768097747213078 0
 63C:\Users\blake\Desktop\pearon\quiz\node_modules\whatwg-mimetype132768097709966356 1
-51C:\Users\blake\Desktop\pearon\quiz\src\summary.html132770039277815252 0
+51C:\Users\blake\Desktop\pearon\quiz\src\summary.html132770088017788424 0
 78C:\Users\blake\Desktop\pearon\quiz\node_modules\@parcel\utils\lib\ansi-html.js132768097713654529 0
 89C:\Users\blake\Desktop\pearon\quiz\node_modules\date-fns\esm\fp\lastDayOfMonth\index.d.ts132768097812265693 0
 121C:\Users\blake\Desktop\pearon\quiz\node_modules\postcss-modules-values\node_modules\source-map\dist\source-map.min.js.map132768097722324382 0
@@ -291,7 +291,7 @@
 65C:\Users\blake\Desktop\pearon\quiz\node_modules\lodash\fp\math.js132768097738453115 0
 84C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\src\operators\withLatestFrom.ts132768097777588615 0
 67C:\Users\blake\Desktop\pearon\quiz\node_modules\object-inspect\test132768097721868999 1
-48C:\Users\blake\Desktop\pearon\quiz\src\style.css132770041921236733 0
+48C:\Users\blake\Desktop\pearon\quiz\src\style.css132770087488519660 0
 66C:\Users\blake\Desktop\pearon\quiz\node_modules\uncss\node_modules132768097688423041 1
 76C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\observable\fromEvent.js132768097732880874 0
 65C:\Users\blake\Desktop\pearon\quiz\node_modules\@babel\code-frame132768097710877139 1
@@ -3487,7 +3487,7 @@
 79C:\Users\blake\Desktop\pearon\quiz\node_modules\css-tree\lib\tokenizer\index.js132768097726080029 0
 70C:\Users\blake\Desktop\pearon\quiz\node_modules\verror\CONTRIBUTING.md132768097713289210 0
 77C:\Users\blake\Desktop\pearon\quiz\node_modules\date-fns\locale\ht\index.d.ts132768097822697086 0
-52C:\Users\blake\Desktop\pearon\quiz\dist\summary.html132770039278951228 0
+52C:\Users\blake\Desktop\pearon\quiz\dist\summary.html132770088018929403 0
 82C:\Users\blake\Desktop\pearon\quiz\node_modules\date-fns\fp\isWeekend\package.json132768097802264663 0
 94C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\_esm2015\internal\observable\range.js.map132768097754164047 0
 89C:\Users\blake\Desktop\pearon\quiz\node_modules\date-fns\locale\ro\_lib\localize\index.js132768097785853201 0
@@ -6007,7 +6007,7 @@
 89C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\_esm5\internal\operators\mergeMap.js132768097736741650 0
 96C:\Users\blake\Desktop\pearon\quiz\node_modules\terser\node_modules\source-map\lib\base64-vlq.js132768097716719568 0
 89C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\src\internal\operators\combineAll.ts132768097761896886 0
-58C:\Users\blake\Desktop\pearon\quiz\dist\index.5952072d.css132770041922375110 0
+58C:\Users\blake\Desktop\pearon\quiz\dist\index.5952072d.css132770087489635616 0
 80C:\Users\blake\Desktop\pearon\quiz\node_modules\es-abstract\2019\IteratorNext.js132768097734367149 0
 81C:\Users\blake\Desktop\pearon\quiz\node_modules\postcss-value-parser\lib\index.js132768097707824517 0
 65C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\Scheduler.js132768097741525755 0
@@ -7422,7 +7422,7 @@
 79C:\Users\blake\Desktop\pearon\quiz\node_modules\is-boolean-object\.editorconfig132768097705567581 0
 83C:\Users\blake\Desktop\pearon\quiz\node_modules\postcss-value-parser\lib\index.d.ts132768097715783764 0
 67C:\Users\blake\Desktop\pearon\quiz\node_modules\rxjs\Scheduler.d.ts132768097771806180 0
-62C:\Users\blake\Desktop\pearon\quiz\dist\index.5952072d.css.map132770041922390124 0
+62C:\Users\blake\Desktop\pearon\quiz\dist\index.5952072d.css.map132770087489650635 0
 99C:\Users\blake\Desktop\pearon\quiz\node_modules\@babel\helper-split-export-declaration\package.json132768097711292496 0
 83C:\Users\blake\Desktop\pearon\quiz\node_modules\date-fns\fp\nextSaturday\index.d.ts132768097819289157 0
 97C:\Users\blake\Desktop\pearon\quiz\node_modules\jsdom\lib\jsdom\living\named-properties-window.js132768097732130231 0
