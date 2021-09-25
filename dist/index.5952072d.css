@@ -24,21 +24,29 @@ body {
     margin-bottom: 3rem;
     background-color: var(--white);
     z-index: 1;
-    display: flex;
-    align-content: flex-end;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.68); 
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.68);
+    
 }
 .app-nav ul {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    align-content: flex-end;
+    align-content: center;
     list-style: none;
-    width: 100%;
-    height: fit-content;
+    width: 80%;
+    height: 3rem;
     justify-content: space-between;
+    flex-direction: row;
     flex-wrap: wrap;
     padding: 0;
+    
 }
 .app-nav ul li {
     border-bottom: var(--section-top-border) solid var(--dark-blue);    
+    margin: 0 auto;
+    width: fit-content;
 }
 .app-nav li a {
     text-decoration: none;
@@ -81,6 +89,10 @@ body {
 }
 
 @media (max-width: 1255px) {
+    .app-nav ul {
+        width: 100%;
+    }
+    
     .quiz-container {
     width: 100%;
     }
@@ -108,6 +120,11 @@ body {
     /* padding: 0.4rem 1rem 0.4rem 0.6rem; */
 }
 
+.card-tiny {
+    margin: 1rem 0 1rem 0;
+    border: 2px solid magenta;
+}
+
 .card--background-color-yellow {
     background-color: var(--yellow) !important;
 
@@ -129,6 +146,8 @@ body {
     grid-area: question;
     margin-bottom: 1.2rem;
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
     
 
 }
@@ -177,6 +196,7 @@ body {
     justify-content: space-around;
     min-width: 13rem;
     margin-bottom: 0.5rem;
+    font-weight: normal;
 }
 
 .forward {
@@ -188,5 +208,61 @@ body {
 
 .back {
     border-left: 8px var(--dark-blue) solid;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+}
+div .answer--correct:after {
+    content:"Correct";
+    color: var(--black);
+    background-color: var(--green);
+    position: relative;
+    top: 0;
+    left: 0px;
+    width: 15rem;
+    height: auto;
+}
+
+.answer--incorrect:after{
+    content:"Incorrect";
+    color: var(--black);
+    background-color: var(--red);
+    position: relative;
+    top: 0;
+    left: 0px;
+     width: 15rem;
+    height: 15rem;
+    height: auto;
+}
+
+.answer--unanswered:after{
+    content:"Unanswered";
+    color: var(--black);
+    background-color: var(--dark-blue);
+    position: relative;
+    top: 0;
+    left: 0px;
+     width: 15rem;
+    height: 15rem;
+    height: auto;
+    padding-left: 2rem;
+}
+
+.answer-summary {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+
+.anser-summary .card {
+    height: 10%;
+}
+.answer-summary .card p {
+    width: 500px;
 }
 /*# sourceMappingURL=index.5952072d.css.map */
