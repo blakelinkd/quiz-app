@@ -6,7 +6,5 @@ You can see a demo of the app at [https://inspiring-haibt-d6a815.netlify.app/](h
 npm install
 
 
-npm run build
-
-
+## Run
 npm run serve
