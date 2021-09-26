@@ -9,22 +9,33 @@ const intro = document.querySelector('quiz-intro');
 const summary = document.querySelector('quiz-summary');
 
 const components = [ { name: "navbar", comp: navbar}, { name: "quiz", comp: quiz}, { name: "intro", comp: intro}, { name: "summary", comp: summary}];
+const jsonPath = document.getElementById('quiz-app').getAttribute('quizJson');
 
-const quizJson = document.getElementById('quiz-app').getAttribute('quizJson');
+//const quizJson = await quizJsonLoader(jsonPath);
 
-testJsonLoader(quizJson);
+export async function quizJsonLoader(pathToJson) {
+    const response = await fetch(pathToJson);
+    return response.json();
+}
 
-function testJsonLoader(json) {
-    fetch(json)
-  .then(response => response.json())
-  .then(data => console.log(data)).catch(error => console.log(error));
+export async function quizHTMLLoader(pathToHtml) {
+        const response = await fetch(pathToHtml);
+        return response.text();
+    }
+
+
+export async function getJson() {
+    return await quizJsonLoader(jsonPath);
+}
+
+export async function makeTemplate(response) {
+    let template = document.createRange()
+            .createContextualFragment(response);
+    return template;
 }
 
 
-
-
-
-export const componentLoader = function(hi) {
+export async function componentLoader(hi) {
     for(const comp of components)
     {
         if (comp.name !== hi.target.id && comp.name !== "navbar")

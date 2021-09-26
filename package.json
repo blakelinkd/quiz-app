@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "serve": "browser-sync start --online false --server ./src --files \"src/*\""
+    "serve": "browser-sync start --online false --server ./src --files \"src/**/*\""
   },
   "author": "",
   "license": "ISC",

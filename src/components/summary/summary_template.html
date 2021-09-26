@@ -1,57 +1,29 @@
 <link rel="stylesheet" href="style.css" />
+    <div class="spacer">" "</div>
 
-<div class="answer-summary">
-    <div class="result--card">
+    <div class="result--card correctCard">
         <div class="card card-tiny">
-            <p><span>Question 1/5</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. At eum illum ut.
-            </p>
+            <p><span>Question <slot name="question-order"></slot></span> <slot name="question"></slot></p>
         </div>
         <div class="answer--flag answer--flag-correct">
-            <h1>Correct</h1>
+            <h1>correct</h1>
         </div>
     </div>
 
-
-    <div class="result--card">
+    <div class="result--card incorrectCard">
         <div class="card card-tiny">
-            <p><span>Question 2/5</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. At eum illum ut.
-            </p>
+            <p><span>Question <slot name="question-order"></slot></span> <slot name="question"></slot></p>
         </div>
         <div class="answer--flag answer--flag-incorrect">
             <h1>Incorrect</h1>
         </div>
     </div>
 
-    <div class="result--card">
+    <div class="result--card unansweredCard">
         <div class="card card-tiny">
-            <p><span>Question 3/5</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat officia
-                inventore harum explicabo.
-            </p>
-        </div>
-        <div class="answer--flag answer--flag-incorrect">
-            <h1>Incorrect</h1>
-        </div>
-    </div>
-
-    <div class="result--card">
-        <div class="card card-tiny">
-            <p><span>Question 4/5</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia totam quidem
-                quod magnam facilis ratione fugiat illum fuga dolores ipsa.
-            </p>
-        </div>
-        <div class="answer--flag answer--flag-incorrect">
-            <h1>Incorrect</h1>
-        </div>
-    </div>
-
-    <div class="result--card">
-        <div class="card card-tiny">
-            <p><span>Question 5/5</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusantium sit
-                illo ipsum iure facere ratione.
-            </p>
+            <p><span>Question <slot name="question-order"></slot></span> <slot name="question"></slot></p>
         </div>
         <div class="answer--flag answer--flag-unanswered">
             <h1>Unanswered</h1>
         </div>
     </div>
-</div>

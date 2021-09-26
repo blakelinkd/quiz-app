@@ -1,29 +1,40 @@
 {
 	"subject": "cats",
+	"questionCount": 5,
 	"questions": [{
+			"id": 1,
 			"question": "What does kitty eat?",
 			"answers": ["wet food", "dry food", "<strong>any</strong> food"],
-			"correct": "wet food"
+			"correctAnswer": "wet food",
+			"answerStatus": "unanswered"
 		},
 		{
+			"id": 2,
 			"question": "what is your favorite number?",
 			"answers": ["1", "5", "62", "12"],
-			"correct": "5"
+			"correctAnswer": "5",
+			"answerStatus": "correct"
 		},
 		{
+			"id": 3,
 			"question": "what is 6 + 2?",
 			"answers": ["3", "4", "1", "8"],
-			"correct": "8"
+			"correctAnswer": "8",
+			"answerStatus": "unanswered"
 		},
 		{
+			"id": 4,
 			"question": "Who are you?",
 			"answers": ["me", "you", "everybody"],
-			"correct": "wet food"
+			"correctAnswer": "wet food",
+			"answerStatus": "incorrect"
 		},
 		{
+			"id": 5,
 			"question": "what is water?",
 			"answers": ["wet"],
-			"correct": "wet"
+			"correctAnswer": "wet",
+			"answerStatus": "unanswered"
 		}
 
 	]

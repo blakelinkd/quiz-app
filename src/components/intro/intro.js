@@ -1,24 +1,28 @@
-
+import * as app from '../../main.js';
 export class QuizIntro extends HTMLElement {
+
     constructor() {
         super();
+    }
+
+    async connectedCallback() {
+
+        this.attachShadow({ mode: 'open' });
+        this.response = await app.quizHTMLLoader("/components/intro/intro_template.html");
+
+        this.template = await app.makeTemplate(this.response);
+        this.shadowRoot.appendChild(this.template.cloneNode(true));
+
+        let quizSubject = this.shadowRoot.querySelector('slot[name="quizSubject"]');
+        let questionCount = this.shadowRoot.querySelector('slot[name="questionCount"]');
         
-        this.attachShadow({mode: 'open'});
-        fetch('/components/intro/intro_template.html')
-        .then((response) => {
-            return response.text().then((text) => { 
-                let template = document.createRange()
-                .createContextualFragment(text);
-                this.shadowRoot.appendChild(template.cloneNode(true));
-            });
-            
-        });
+        const quizObject = await app.getJson();
         
+        quizSubject.innerHTML = quizObject.subject;
+        questionCount.innerHTML = Number(quizObject.questionCount);
         
     }
-    
-    connectedCallback() {
-    }
+
     disconnectedCallback() {
     }
 }

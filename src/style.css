@@ -16,6 +16,12 @@ body {
     color: var(--black);
 }
 
+.spacer {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 4rem;
+}
+
 .app-nav {
     width: 100vw;
     position: fixed;
@@ -118,9 +124,10 @@ body {
     flex-direction: row;
     display: flex;
     flex-direction: row;
+    width: 70vw;
 
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     
 }
 .answer--flag {
@@ -160,6 +167,7 @@ body {
 
 .card-tiny {
     margin: 1rem 0 1rem 0;
+    width: 40vw;
 }
 
 .card--background-color-yellow {
@@ -251,40 +259,7 @@ body {
     display: flex;
     flex-direction: column;
 }
-div .answer--correct:after {
-    content:"Correct";
-    color: var(--black);
-    background-color: var(--green);
-    position: relative;
-    top: 0;
-    left: 0px;
-    width: 15rem;
-    height: auto;
-}
 
-.answer--incorrect:after{
-    content:"Incorrect";
-    color: var(--black);
-    background-color: var(--red);
-    position: relative;
-    top: 0;
-    left: 0px;
-     width: 15rem;
-    height: 15rem;
-    height: auto;
-}
-
-.answer--unanswered:after{
-    content: "Unanswered";
-    color: var(--black);
-    background-color: var(--dark-blue);
-    position: relative;
-    top: 0;
-    left: 0px;
-     width: 15rem;
-    height: 15rem;
-    height: auto;
-}
 
 .answer-summary {
     display: flex;
