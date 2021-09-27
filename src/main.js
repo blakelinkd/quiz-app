@@ -16,18 +16,8 @@ let quizJson = await quizJsonLoader(jsonPath)
 .catch((error) => console.error(error));
 
 initApp();
-const navbar = document.querySelector('nav-bar');
-const quiz = document.querySelector('quiz-app');
-const intro = document.querySelector('quiz-intro');
-const summary = document.querySelector('quiz-summary');
-const modal = document.querySelector('confirm-modal');
 
-const components = [ 
-    { name: "navbar", comp: navbar}, 
-    { name: "modal", comp: modal},
-    { name: "quiz", comp: quiz}, 
-    { name: "intro", comp: intro}, 
-    { name: "summary", comp: summary}];
+const components = [ 'quiz-app', 'quiz-intro', 'quiz-summary'];
 
 export async function getJson() {
     return quizJson;
@@ -41,7 +31,6 @@ let quizState = {
 
 export function setSelectedAnswer(text) {
     quizState.selectedAnswer = text.target.getAttribute('value');
-    console.log(quizState.selectedAnswer);
     if (!quizState.lastAnswer) {
         console.log("no last anwer");
         quizState.lastAnswer = text.target;
@@ -61,13 +50,15 @@ export async function checkAnswer(event) {
     if(quizJson.questions[quizState.activeQuestion - 1].correctAnswer === quizState.selectedAnswer) {
         console.log("You are Correct!");
        quizJson.questions[quizState.activeQuestion - 1].answerStatus = "correct";
-       refreshApp('quiz-summary');
+       quizState.lastAnswer.classList.add('card--background-color-green');
+       reloadComponent('quiz-summary');
        
        return;
     }
     quizJson.questions[quizState.activeQuestion - 1].answerStatus = "incorrect";
-       refreshApp('quiz-summary');
-    
+    quizState.lastAnswer.classList.add('card--background-color-red');
+    reloadComponent('quiz-summary');
+
     console.log(JSON.stringify(quizJson));
 
 }
@@ -92,18 +83,12 @@ function initApp() {
 
 }
 
-export function refreshApp(target) {
-    let component = document.querySelector(target);
-    component.remove();
-    const newComponent = document.createElement(target);
-    newComponent.style.display = 'none';
-    document.body.appendChild(newComponent);
-}
 
 export function getActiveQuestion() {
     return quizState.activeQuestion;
 }
 export function nextQuestion() {
+    console.log("NEXT QUESTION: " );
     console.log(quizJson.questionCount);
     if(quizState.activeQuestion < quizJson.questionCount)  {
         quizState.activeQuestion++
@@ -111,25 +96,58 @@ export function nextQuestion() {
     else {
         quizState.activeQuestion = 1;
     }
+    reloadComponent('quiz-app');
     console.log(quizState.activeQuestion);
-
-    refreshApp();
-}
-
-export async function componentLoader(hi) {
-    for(const comp of components)
-    {
-        if (comp.name !== hi.target.id && comp.name !== "navbar")
-        {
-            comp.comp.style.display = 'none';
-            
-        }
-        else {
-            comp.comp.style.display = "block";
-        }
-    }
     
 }
+
+export function prevQuestion() {
+    console.log("PREVIOUS QUESTION: " );
+    console.log(quizJson.questionCount);
+    if(quizState.activeQuestion > 1)  {
+        quizState.activeQuestion--
+    }
+    else {
+        quizState.activeQuestion = 5;
+    }
+    reloadComponent('quiz-app');
+    console.log(quizState.activeQuestion);
+    
+}
+
+
+export function unloadComponent(target) {
+    let component = document.querySelector(target);
+    if(component == null) {
+        return;
+    }
+    component.remove();
+}
+
+export function loadComponent(target) {
+    const newComponent = document.createElement(target);
+    document.body.appendChild(newComponent);
+}
+
+export function reloadComponent(target) {
+    let component = document.querySelector(target);
+    if(component == null) {
+        return;
+    }
+    component.remove();
+    const newComponent = document.createElement(target);
+    document.body.appendChild(newComponent);
+}
+
+export async function componentLoader(component) {
+    let componentName = component.target.getAttribute('name');
+    console.log("component: " + componentName);
+    components.forEach((name) => {
+        unloadComponent(name);
+    });
+    loadComponent(componentName);
+}
+
 export async function quizJsonLoader(pathToJson) {
     const response = await fetch(pathToJson);
     return response.json();

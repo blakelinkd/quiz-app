@@ -17,7 +17,7 @@ export class NavBar extends HTMLElement {
         
         let list = this.shadowRoot.querySelectorAll('li');
         for (let item of list) {
-            item.addEventListener('click', componentLoader, item);
+            item.addEventListener('click', componentLoader, false);
         }
 
 

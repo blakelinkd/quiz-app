@@ -7,6 +7,7 @@ export class QuizSummary extends HTMLElement {
     }
 
     async connectedCallback() {
+        console.log("connected");
 
         this.attachShadow({ mode: 'open' });
         this.response = await app.quizHTMLLoader("/components/summary/summary_template.html");

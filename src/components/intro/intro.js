@@ -21,6 +21,10 @@ export class QuizIntro extends HTMLElement {
         const quizObject = await app.getJson();
         quizSubject.innerHTML = quizObject.subject;
         questionCount.innerHTML = Number(quizObject.questionCount);
+
+        const button = this.shadowRoot.querySelector('#button-begin');
+        console.log(button);
+        button.addEventListener('click', app.componentLoader, false);
         
     }
 

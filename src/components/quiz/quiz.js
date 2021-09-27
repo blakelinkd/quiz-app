@@ -67,17 +67,13 @@ export class QuizApp extends HTMLElement {
             answer.paragraph = paragraph.innerHTML;
         }
 
-        
-        
-        
-        
-        
-        
+        const forwardButton = this.shadowRoot.querySelector('.forward');
+        console.log(forwardButton);
+        forwardButton.addEventListener('click', app.nextQuestion, false);
 
-
-        
-        
-        
+         const backButton = this.shadowRoot.querySelector('.back');
+        console.log(backButton);
+        backButton.addEventListener('click', app.prevQuestion, false);
     }
 
     disconnectedCallback() {

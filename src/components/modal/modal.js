@@ -3,18 +3,19 @@ import * as app from '../../main.js';
 export function toggleModal() {
     
     console.log("clicky");
-    let compons = app.getComponents().filter((value) => value.name === 'modal');
-    
-    if (compons[0].comp.style.display === 'block')
-    compons[0].comp.style.display = 'none';
+    let modal = document.querySelector('confirm-modal');
+    console.log(modal);
+    console.log(modal.style);
+    if (modal.style.display === 'none')
+        modal.style.display = 'block';
     else
-    compons[0].comp.style.display = 'block';
+    modal.style.display = 'none';
 }
 
 export function initModal(event) {
     event.stopPropagation();
-    let compons = app.getComponents().filter((value) => value.name === 'modal');
-    let p = compons[0].comp.shadowRoot.querySelector('p');
+    let modal = document.querySelector('confirm-modal');
+    let p = modal.shadowRoot.querySelector('p');
     p.innerHTML = event.target.paragraph;
     toggleModal();
 
@@ -62,14 +63,6 @@ export class ConfirmModal extends HTMLElement {
         
         const buttons = modalConfirmBox.querySelectorAll('button');
         buttons.forEach((button) => button.addEventListener('click', (event) => buttonHandler(event), false));
-        
-        // modalConfirmBox.addEventListener('click', toggleModal, false);
-       
-
-        
-
-
-
 
     }
 
