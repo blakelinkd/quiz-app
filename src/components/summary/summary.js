@@ -7,7 +7,6 @@ export class QuizSummary extends HTMLElement {
     }
 
     async connectedCallback() {
-        console.log("connected");
 
         this.attachShadow({ mode: 'open' });
         this.response = await app.quizHTMLLoader("/components/summary/summary_template.html");
@@ -24,13 +23,14 @@ export class QuizSummary extends HTMLElement {
         
         const quizObject = await app.getJson();
 
-        for(const question of quizObject.questions){
-            switch(question.answerStatus)
+        
+        for(const question of quizObject.results){
+            switch(question.answer_status)
             {
                 case 'unanswered':
                     let unanswered = unansweredCard.cloneNode(true);
                     var slots = unanswered.querySelectorAll('slot');
-                    slots[0].innerHTML = `${question.id}/${quizObject.questionCount}`;
+                    slots[0].innerHTML = `${quizObject.results.indexOf(question) + 1}/${quizObject.results.length}`;
                     slots[1].innerHTML = question.question;
                     this.shadowRoot.appendChild(unanswered);
                     break;
@@ -39,7 +39,7 @@ export class QuizSummary extends HTMLElement {
                     let correct = correctCard.cloneNode(true);
                     var slots = correct.querySelectorAll('slot');
                     
-                    slots[0].innerHTML = `${question.id}/${quizObject.questionCount}`;
+                    slots[0].innerHTML = `${quizObject.results.indexOf(question) + 1}/${quizObject.results.length}`;
                     slots[1].innerHTML = question.question;
                     this.shadowRoot.appendChild(correct);
                     break;
@@ -48,14 +48,13 @@ export class QuizSummary extends HTMLElement {
                     let incorrect = incorrectCard.cloneNode(true);
                     var slots = incorrect.querySelectorAll('slot');
                     
-                    slots[0].innerHTML = `${question.id}/${quizObject.questionCount}`;
+                    slots[0].innerHTML = `${quizObject.results.indexOf(question) + 1}/${quizObject.results.length}`;
                     slots[1].innerHTML = question.question;
                     this.shadowRoot.appendChild(incorrect);
                     break;
 
                 default:
-                    console.log("default case: " + question);
-
+                    console.error("invalid data.");
             }
         }
         

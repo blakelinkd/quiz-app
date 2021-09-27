@@ -19,11 +19,12 @@ export class QuizIntro extends HTMLElement {
         let questionCount = this.shadowRoot.querySelector('slot[name="questionCount"]');
         
         const quizObject = await app.getJson();
-        quizSubject.innerHTML = quizObject.subject;
-        questionCount.innerHTML = Number(quizObject.questionCount);
+        console.log(quizObject);
+
+        quizSubject.innerHTML =   `<b>${quizObject.results[0].category}</b>`;
+        questionCount.innerHTML = `<b>${quizObject.results.length}</b>`;
 
         const button = this.shadowRoot.querySelector('#button-begin');
-        console.log(button);
         button.addEventListener('click', app.componentLoader, false);
         
     }
