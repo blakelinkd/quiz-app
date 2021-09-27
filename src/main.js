@@ -10,11 +10,18 @@ export function getComponents() {
 }
 
 const jsonPath = "quizes/quiz1.json";
+const openTriviaURL = "https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple";
 
-let quizJson = await quizJsonLoader(jsonPath)
-.then(function (data) { return data })
+
+let quizJson = await quizJsonLoader(openTriviaURL)
+.then(function (data) { 
+    data.results.forEach((question) => question.answer_status = "unanswered");
+    return data
+ })
 .catch((error) => console.error(error));
 
+
+console.log(quizJson);
 initApp();
 
 const components = [ 'quiz-app', 'quiz-intro', 'quiz-summary'];
@@ -23,10 +30,34 @@ export async function getJson() {
     return quizJson;
 }
 
-let quizState = {
+export let quizState = {
     "activeQuestion": 1,
     "selectedAnswer": "",
-    "lastAnswer": ""
+    "lastAnswer": "",
+    "percentageComplete": "0%"
+}
+
+export function progressPercentage() {
+    const length = quizJson.results.length;
+    let questions_left = 0;
+    quizJson.results.forEach((question) => { 
+        if(question.answer_status === "unanswered") 
+            questions_left++;
+        });
+
+    const percentage = (length - questions_left)/length * 100;
+    quizState.percentageComplete = `${percentage}%`;
+}
+
+
+export function updateInfoPanel() {
+    console.log('update info');
+    console.log(document);
+    let quizElem = document.querySelector('quiz-app');
+    let infoPanel = quizElem.shadowRoot.querySelector('#percent_complete');
+    infoPanel.innerHTML = quizState.percentageComplete;
+
+    console.log(infoPanel);
 }
 
 export function setSelectedAnswer(text) {
@@ -45,22 +76,22 @@ export function setSelectedAnswer(text) {
     }
 }
 export async function checkAnswer(event) {
-    console.log(quizJson);
-    console.log(quizJson.questions[quizState.activeQuestion - 1].correctAnswer + " ?= " + quizState.selectedAnswer);
-    if(quizJson.questions[quizState.activeQuestion - 1].correctAnswer === quizState.selectedAnswer) {
+    console.log(quizJson.results[quizState.activeQuestion - 1].correct_answer.trim() + " ?= " + quizState.selectedAnswer);
+    if(quizJson.results[quizState.activeQuestion - 1].correct_answer.trim() === quizState.selectedAnswer) {
         console.log("You are Correct!");
-       quizJson.questions[quizState.activeQuestion - 1].answerStatus = "correct";
+       quizJson.results[quizState.activeQuestion - 1].answer_status = "correct";
        quizState.lastAnswer.classList.add('card--background-color-green');
        reloadComponent('quiz-summary');
+       progressPercentage();
+       updateInfoPanel();
        
        return;
     }
-    quizJson.questions[quizState.activeQuestion - 1].answerStatus = "incorrect";
+    quizJson.results[quizState.activeQuestion - 1].answer_status = "incorrect";
     quizState.lastAnswer.classList.add('card--background-color-red');
     reloadComponent('quiz-summary');
-
-    console.log(JSON.stringify(quizJson));
-
+    progressPercentage();
+    updateInfoPanel();
 }
 export function getQuizState() {
     return quizState;
@@ -88,30 +119,24 @@ export function getActiveQuestion() {
     return quizState.activeQuestion;
 }
 export function nextQuestion() {
-    console.log("NEXT QUESTION: " );
-    console.log(quizJson.questionCount);
-    if(quizState.activeQuestion < quizJson.questionCount)  {
+    if(quizState.activeQuestion < quizJson.results.length)  {
         quizState.activeQuestion++
     }
     else {
         quizState.activeQuestion = 1;
     }
     reloadComponent('quiz-app');
-    console.log(quizState.activeQuestion);
     
 }
 
 export function prevQuestion() {
-    console.log("PREVIOUS QUESTION: " );
-    console.log(quizJson.questionCount);
     if(quizState.activeQuestion > 1)  {
         quizState.activeQuestion--
     }
     else {
-        quizState.activeQuestion = 5;
+        quizState.activeQuestion = quizJson.results.length;
     }
     reloadComponent('quiz-app');
-    console.log(quizState.activeQuestion);
     
 }
 

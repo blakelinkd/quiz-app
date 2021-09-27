@@ -2,10 +2,7 @@ import * as app from '../../main.js';
 
 export function toggleModal() {
     
-    console.log("clicky");
     let modal = document.querySelector('confirm-modal');
-    console.log(modal);
-    console.log(modal.style);
     if (modal.style.display === 'none')
         modal.style.display = 'block';
     else
@@ -22,12 +19,9 @@ export function initModal(event) {
 }
 
 function buttonHandler(event) {
-    console.log(event.target);
-    console.log('target: ' + event.target.innerText);
     if(event.target.innerText === "Yes")
     {
         app.checkAnswer();
-        //app.nextQuestion();
     }
 
     toggleModal();
