@@ -94,7 +94,103 @@ body {
     width: 45%;
 }
 
+#button-begin {
+            height: 5rem;
+            width: fit-content;
+            margin-top: 2rem;
+            font-size: 3rem;
+            padding: 1rem 2rem 1rem 2rem;
+            color: var(--dark-blue);
+}
+
+ .modalContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(121, 200, 231, 0);
+        z-index: 1;
+    }
+
+.confirmModal {
+        opacity: 1;
+        background-color: var(--white);
+        position: fixed;
+        top: 12rem;
+        left: calc(50vw - 12.5vw);
+        width: 25vw;
+        height: fit-content;
+        border-radius: 1.8px;
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.68); 
+    box-shadow: 0px 0px 25px 10px rgba(0,0,0,0.68);
+        }
+    .confirmModal h3 {
+        
+        padding-left: 2rem;
+    }
+    .confirmModal p {
+        margin: 0 auto;
+
+        padding-left: 2rem;
+    }
+    .confirmModal h2 {
+        margin: 0 auto;
+        width: fit-content;
+    }
+    .confirm--buttons {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 3rem;
+    }
+
+    .button-no {
+        background-color: var(--red);
+        flex: 1;
+        height: 2.5rem;
+        margin-left: 1rem;
+        font-size: 1.6rem;
+        margin-right: 1rem;
+    }
+    .button-yes {
+        background-color: var(--green);
+        flex: 1;
+        height: 2.5rem;
+        margin-right: 1rem;
+        font-size: 1.6rem;
+
+    }
+
+
+
+
+#button-begin {
+    width: fit-content;
+    height: fit-content;
+}
 @media (max-width: 1255px) {
+    .app-container {
+        display: flex;
+        flex-direction: column;
+        width: 80vw;
+        margin: 4rem auto;
+    }
+    
+    .app-container p {
+        margin: 0;
+    }
+    .app-container p:first-of-type {
+        margin-top: 1rem;
+
+    }
+    .app-container p:not(:first-child) {
+        margin-top: 1rem;
+    }
+    #button-begin {
+        font-size: 1.4rem;
+    }
     .app-nav ul {
         width: 100%;
     }
@@ -122,23 +218,25 @@ body {
 .result--card {
     display: flex;
     flex-direction: row;
-    display: flex;
-    flex-direction: row;
     width: 70vw;
+    flex-wrap: wrap;
 
     padding: 0;
     margin: 0 auto;
     
 }
 .answer--flag {
-    margin: 1rem 0 1rem 0;
+    margin: 0;
+    margin-bottom: 1rem;
+
     width: 12rem;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.68); 
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.68);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 2rem
+    padding-left: 2rem;
+    width: 70vw;
 }
 .answer--flag h1 {
     font-weight: normal;
@@ -166,8 +264,8 @@ body {
 }
 
 .card-tiny {
-    margin: 1rem 0 1rem 0;
-    width: 40vw;
+    margin: 1rem 0 0rem 0;
+    width: 70vw;
 }
 
 .card--background-color-yellow {
@@ -284,3 +382,4 @@ body {
 .modalContainer {
     display: block;
 }
+
