@@ -1,4 +1,6 @@
 import * as app from '../../main.js';
+
+
 export class QuizIntro extends HTMLElement {
 
     constructor() {
@@ -17,7 +19,6 @@ export class QuizIntro extends HTMLElement {
         let questionCount = this.shadowRoot.querySelector('slot[name="questionCount"]');
         
         const quizObject = await app.getJson();
-        
         quizSubject.innerHTML = quizObject.subject;
         questionCount.innerHTML = Number(quizObject.questionCount);
         

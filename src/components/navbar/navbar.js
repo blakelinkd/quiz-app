@@ -1,35 +1,29 @@
 import { componentLoader } from "../../main.js";
-
+import * as app from '../../main.js';
 export class NavBar extends HTMLElement {
+
     constructor() {
         super();
-        
-        this.attachShadow({mode: 'open'});
-        fetch('/components/navbar/navbar_template.html')
-        .then((response) => {
-            return response.text().then((text) => { 
-                let template = document.createRange()
-                .createContextualFragment(text);
-                this.shadowRoot.appendChild(template.cloneNode(true));
-                let list = this.shadowRoot.querySelectorAll('li');
-                for(let item of list)
-                {
-                    item.addEventListener('click', componentLoader, item);
-                }
-                
-            });
-            
-        });
-        
-        
     }
-    
-    
-    
-    connectedCallback() {
+
+    async connectedCallback() {
+
+        this.attachShadow({ mode: 'open' });
+        this.response = await app.quizHTMLLoader("/components/navbar/navbar_template.html");
+
+        const template = await app.makeTemplate(this.response);
+
+        this.shadowRoot.appendChild(template.cloneNode(true));
         
+        let list = this.shadowRoot.querySelectorAll('li');
+        for (let item of list) {
+            item.addEventListener('click', componentLoader, item);
+        }
+
+
 
     }
+
     disconnectedCallback() {
     }
 }

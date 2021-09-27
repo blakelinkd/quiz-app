@@ -276,3 +276,11 @@ body {
 .answer-summary .card p {
     width: 500px;
 }
+
+.answer {
+    margin-bottom: 2rem;
+}
+
+.modalContainer {
+    display: block;
+}
