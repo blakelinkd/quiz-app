@@ -1,5 +1,8 @@
 import * as app from '../../main.js';
 import * as Modal from '../modal/modal.js';
+
+
+
 export class QuizApp extends HTMLElement {
 
     constructor() {
@@ -7,7 +10,6 @@ export class QuizApp extends HTMLElement {
     }
 
     setNextQuestion() {
-        console.log("setNextQuestion()");
     }
 
     async connectedCallback() {
@@ -16,6 +18,8 @@ export class QuizApp extends HTMLElement {
         this.response = await app.quizHTMLLoader("/components/quiz/quiz_template.html");
 
         const template = await app.makeTemplate(this.response);
+        let infoPanel = template.querySelector('#percent_complete');
+        infoPanel.innerHTML = app.quizState.percentageComplete;
         
         const answerCard = template.querySelector('.answer');
         const questionCard = template.querySelector('.question');
@@ -31,17 +35,17 @@ export class QuizApp extends HTMLElement {
         
         const quizObject = await app.getJson();
         let activeQuestionIndex = app.getActiveQuestion();
-        console.log(activeQuestionIndex + '   index');
-        let activeQuestion = quizObject.questions[ activeQuestionIndex-1 ];
-        console.log(activeQuestion);
+        let activeQuestion = quizObject.results[ activeQuestionIndex-1 ];
         let question = questionCard.cloneNode(true);
         var slots = question.querySelectorAll('slot');
-        slots[0].innerHTML = `${activeQuestion.id}/${quizObject.questionCount}`;
+        slots[0].innerHTML = `${activeQuestionIndex}/${quizObject.results.length}`;
         slots[1].innerHTML = activeQuestion.question;
         appContainer.prepend(question.cloneNode(true));
 
 
-        activeQuestion.answers.forEach((value, i) => {
+        const answer_list = activeQuestion.incorrect_answers.concat(activeQuestion.correct_answer);
+        answer_list.forEach((value, i) => {
+            console.log('answer: ' + value);
             let answer = answerCard.cloneNode(true);
             let paragraph = answer.querySelector('p');
             let answerchar = String.fromCharCode(i+65);
@@ -60,6 +64,7 @@ export class QuizApp extends HTMLElement {
 
         for (let answer of answers) {
             let paragraph = answer.querySelector('p');
+            answer.addEventListener('click', app.updateInfoPanel, false);
             answer.addEventListener('click', app.setSelectedAnswer, false);
             
             answer.addEventListener('click', Modal.initModal, false);
@@ -67,14 +72,16 @@ export class QuizApp extends HTMLElement {
             answer.paragraph = paragraph.innerHTML;
         }
 
+
+
         const forwardButton = this.shadowRoot.querySelector('.forward');
-        console.log(forwardButton);
         forwardButton.addEventListener('click', app.nextQuestion, false);
 
          const backButton = this.shadowRoot.querySelector('.back');
-        console.log(backButton);
         backButton.addEventListener('click', app.prevQuestion, false);
     }
+
+    
 
     disconnectedCallback() {
     }
